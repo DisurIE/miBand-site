@@ -42,3 +42,10 @@ const swiper = new Swiper('.swiper', {
         document.querySelector('header').classList.remove('js-header-scroll');
     }
   });
+
+  const burger = document.querySelector('.menu-icon');
+
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    document.querySelector('.header__nav').classList.toggle('header__nav_active');
+  });
