@@ -49,3 +49,45 @@ const swiper = new Swiper('.swiper', {
     burger.classList.toggle('active');
     document.querySelector('.header__nav').classList.toggle('header__nav_active');
   });
+
+  const popup1 = document.querySelector('.popup');
+
+  document.querySelector('.button_red').addEventListener('click', () => {
+    popup1.classList.add('active');
+  });
+
+  popup1.addEventListener('click', e => {
+    let target = e.target;
+    if(!target.classList.contains('popup__content')){
+      popup1.classList.remove('active');
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if(e.which === 27){
+      popup1.classList.remove('active');
+    }
+  });
+    const popup2 = document.querySelector('.popup_form');
+    document.addEventListener('click', e => {
+      let targer = e.target;
+
+      if(targer.classList.contains('popup-open')){
+        document.querySelector('.popup_form').classList.add('active');
+        document.querySelector('body').classList.add('hidden');
+      }
+
+    });
+    popup2.addEventListener('click', e => {
+      let target = e.target;
+      if(target.classList.contains('popup__body')){
+        popup2.classList.remove('active');
+        document.querySelector('body').classList.remove('hidden');
+      }
+    });
+    document.addEventListener('keydown', e => {
+      if(e.which === 27){
+        popup2.classList.remove('active');
+        document.querySelector('body').classList.remove('hidden');
+      }
+    });
